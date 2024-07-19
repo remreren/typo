@@ -1,8 +1,18 @@
-<p>Powered by
-    <a href="https://gohugo.io/">Hugo</a>
-    and
-    <a href="https://github.com/tomfran/typo">tomfran/typo</a>
-</p>
+{{ if .Site.Params.footer.showFooter }}
+<footer>
+  <div>
+    {{ if .Site.Params.footer.showText }}
+    {{ with .Site.Params.footer.text }}
+    <p style="margin-top: 0.2rem; margin-bottom: 0.2rem;">{{ . | markdownify }}</p>
+    {{ end }}
+    {{ end }}
+
+    {{ if .Site.Params.footer.showCopyright }}
+    <p style="margin-top: 0.2rem; margin-bottom: 0.2rem;">&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
+    {{ end }}
+  </div>
+</footer>
+{{ end }}
 
 {{ if .Param "math" }}
 {{ partialCached "math.html" . }}

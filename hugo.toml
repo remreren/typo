@@ -6,3 +6,8 @@ title = 'typo'
 [module.hugoVersion]
 extended = false
 min = "0.116.0"
+
+[params.footer]
+showFooter = true
+showText = true
+text = "Powered by [Hugo](https://gohugo.io/) and [tomfran/typo](https://github.com/tomfran/typo)"
