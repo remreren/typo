@@ -26,7 +26,7 @@
 
       {{ if .Param "readTime" }}
       &nbsp; · &nbsp;
-      {{ .ReadingTime }} min read
+      {{ .ReadingTime }} {{ i18n "readingTimeInMins" }}
       {{end }}
     </p>
 
@@ -54,11 +54,9 @@
 
   {{ if and (.IsTranslated) (gt (len .Translations) 0) }}
   <div class="translations">
-    <!-- <span>{{ i18n "translations" }}</span> -->
-    <span>Translations:</span>
+    <span>{{ i18n "translations" }}:</span>
     <div class="translations-list">
-      <!-- <span class="active">{{ i18n "original" }}</span> -->
-      <span class="active">Turkish</span>
+      <span class="active">{{ .Language.LanguageName }}</span>
       {{ range .Translations }}
       <span class="passive"><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></span>
       {{ end }}
