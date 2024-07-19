@@ -50,6 +50,23 @@
   {{ end }}
   {{ end }}
 
+  {{/* Translations */}}
+
+  {{ if and (.IsTranslated) (gt (len .Translations) 0) }}
+  <div class="translations">
+    <!-- <span>{{ i18n "translations" }}</span> -->
+    <span>Translations:</span>
+    <div class="translations-list">
+      <!-- <span class="active">{{ i18n "original" }}</span> -->
+      <span class="active">Turkish</span>
+      {{ range .Translations }}
+      <span class="passive"><a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a></span>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+
   {{/* Table of Content */}}
 
   {{ if .Param "toc" }}
@@ -80,6 +97,17 @@
       back to top
     </a>
   </div>
+  {{ end }}
+
+  {{ if .Store.Get "hasMermaid" }}
+  {{ $theme := "dark" }}
+  {{ with .Param "theme" }}
+  {{ $theme = .}}
+  {{ end }}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: '{{ $theme }}' });
+  </script>
   {{ end }}
 
 </div>

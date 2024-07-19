@@ -524,3 +524,29 @@ blockquote p {
   margin-left: 1rem;
   margin-right: 1rem;
 }
+
+/* Translations */
+
+.translations {
+  margin-top: 1rem;
+  /* make children side by side */
+  display: flex;
+}
+
+.translations-list {
+  margin-left: 1rem;
+}
+
+.translations-list span {
+  margin-right: .3rem;
+}
+
+.translations-list>span.active {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.translations-list>span.passive {
+  font-weight: normal;
+  text-decoration: underline;
+}
