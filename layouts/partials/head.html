@@ -3,9 +3,21 @@
 
 {{- if .IsHome -}}
 <meta name="description" content="{{ site.Params.Description }}" />
+<meta name="og:description" content="{{ site.Params.Description }}" />
+<meta name="og:type" content="website" />
 {{- else -}}
 <meta name="description" content="{{ .Params.Description }}" />
+<meta name="og:description" content="{{ .Params.Description }}" />
+<meta name="og:type" content="article" />
 {{- end }}
+
+<meta name="og:title" content="{{ .Title }}" />
+<meta name="og:url" content="{{ .Permalink }}" />
+<meta name="og:locale " content="{{ site.Language.LanguageCode }}" />
+
+{{- if .Params.Image -}}
+<meta name="og:image" content="{{ .Params.Image }}" />
+{{- end -}}
 
 <title>
     {{ if .IsHome }}
