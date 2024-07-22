@@ -13,7 +13,7 @@
         {{ range . }}
         <p class="small {{ if eq .url $currentPage.Path }} bold {{end}}">
             <a href="{{.url}}">
-                /{{.name }}
+                {{.name }}
             </a>
         </p>
         {{ end }}

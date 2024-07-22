@@ -35,6 +35,11 @@
 
 <link rel="canonical" href="{{ .Permalink }}" />
 
+{{ $baseDir := "layouts/partials/extras" }}
+{{ if fileExists $baseDir }}
+{{ partial "traverse" (dict "dir" $baseDir "basePath" "extras") }}
+{{ end }}
+
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 

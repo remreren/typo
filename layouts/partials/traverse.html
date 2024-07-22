@@ -1,0 +1,13 @@
+{{ $dir := .dir }}
+{{ $basePath := .basePath }}
+
+{{ $items := readDir $dir }}
+{{ range $items }}
+{{ $itemPath := path.Join $dir .Name }}
+{{ if .IsDir }}
+{{ partial "traverse" (dict "dir" $itemPath "basePath" $basePath) }}
+{{ else }}
+{{ $partialPath := path.Join $basePath (path.Base $dir) .Name }}
+{{ partialCached $partialPath . }}
+{{ end }}
+{{ end }}

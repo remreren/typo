@@ -8,7 +8,7 @@
     {{ end }}
 
     {{ if .Site.Params.footer.showCopyright }}
-    <p style="margin-top: 0.2rem; margin-bottom: 0.2rem;">&copy; {{ now.Format "2006" }} {{ .Site.Title }}. All rights reserved.</p>
+    <p style="margin-top: 0.2rem; margin-bottom: 0.2rem;">&copy; {{ now.Format "2006" }} {{ .Site.Title }}. {{ .Site.Params.footer.copyright }}</p>
     {{ end }}
   </div>
 </footer>
